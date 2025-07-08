@@ -4,13 +4,24 @@
     margin: 0;
     padding: 0;
     box-sizing: border-box;
+    font-family: "Open Sans", sans-serif;
+    font-optical-sizing: auto;
+    font-variation-settings: "wdth" 100;
+
 }
+
+/* nav style */
 
 nav {
     display: flex;
     justify-content: space-between;
     align-items: center;
     padding: 1.5em;
+}
+.nav-title {
+    font-size: 45px;
+    font-weight: 800;
+    color: #181818;
 }
 
 nav ul {
