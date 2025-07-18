@@ -101,7 +101,7 @@ nav li a {
 }
 
 .banner-profile-pic {
-    width: 580px;
+    width: 100%;
 }
 
 /* main styles */
@@ -197,20 +197,29 @@ footer textarea {
 
 /* Responsive media queries */
 
-.hide {
+/* .hide {
     display: none;
-}
+} */
 
+
+/* mobile devise  */
 
 @media screen and (max-width:576px) {
 
     .skills-container,
     .resume-container,
     footer,
+    .banner,
+    nav,
+    nav>ul,
     .about-items {
         display: flex;
         flex-direction: column;
         align-items: center;
+    }
+
+    nav>ul {
+        gap: 10px;
     }
 
     footer,
@@ -218,8 +227,25 @@ footer textarea {
         padding: 10px;
     }
 
+    .banner,
+    nav {
+        margin: 10px;
+    }
+
+    .header {
+        background-image: none;
+    }
+
+    .banner-profile-pic {
+        width: 100%;
+    }
+
     .footer-column {
         width: 100%;
+    }
+
+    .banner-content button {
+        margin-top: .5rem;
     }
 
     footer input[type="text"],
@@ -229,24 +255,47 @@ footer textarea {
     }
 }
 
+/* tablet  */
 
 @media screen and (min-width:576px) and (max-width:992px) {
 
     .skills-container,
     .resume-container,
+    .about-items,
     footer {
         display: grid;
         grid-template-columns: repeat(2, 1fr);
         gap: 24px;
     }
 
-    footer {
+    footer,
+    .about {
         padding: 40px;
     }
 
     .footer-column {
         width: 100%;
     }
+
+    .banner {
+
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+
+    }
+
+    .header {
+        background-image: none;
+    }
+
+    .banner,
+    nav {
+        margin: 10px;
+        justify-content: space-around;
+    }
+
+
 
     footer input[type="text"],
     footer input[type="email"],
