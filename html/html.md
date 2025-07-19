@@ -5,6 +5,7 @@
 ````markdown
 # 🧠 Pro HTML Master Note
 
+
 ## ✅ 1. HTML Boilerplate & Structure
 ```html
 <!DOCTYPE html>
