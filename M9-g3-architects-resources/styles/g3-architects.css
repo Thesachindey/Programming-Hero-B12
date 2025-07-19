@@ -1,5 +1,40 @@
+/* work sans  */
+@import url('https://fonts.googleapis.com/css2?family=Work+Sans:ital,wght@0,100..900;1,100..900&display=swap');
+
+.work-sans-font {
+  font-family: "Work Sans", sans-serif;
+  font-optical-sizing: auto;
+  font-weight: 400;
+}
 *{
     margin: 0;
     padding: 0;
     box-sizing: border-box;
 }
+
+/* nav-bar style  */
+.main-logo{
+    font-weight:bold;
+    font-size: 2rem;
+}
+.nav-bar{
+    padding: 2rem 8rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.nav-bar ul{
+    list-style: none;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 2rem;
+}
+.nav-bar ul li a{
+    text-decoration: none;
+    color: black;
+    font-weight: medium;
+    font-size: .8rem;
+}
+
