@@ -35,7 +35,9 @@
     font-size: 1rem;
     border: none;
 }
-
+ .alignment{
+     padding: 2rem 8rem;
+ }
 /* Header section style  */
 
 
@@ -65,3 +67,25 @@
     font-size: .8rem;
 }
 
+/* hero section style  */
+.hero-section {
+display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+
+}
+
+.hero-heading{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+.hero-heading .heading1,
+.hero-heading .heading2 {
+    font-size:3rem;
+    font-weight: 700;
+    color: var(--logo-black);
+}
