@@ -119,7 +119,7 @@
    border-radius: 8px;
 }
 
-/* Responsive media queries for header and hero section  */
+/* Responsive media queries   */
 
 @media screen and (max-width:576px){
     .nav-bar, .nav-bar ul {
