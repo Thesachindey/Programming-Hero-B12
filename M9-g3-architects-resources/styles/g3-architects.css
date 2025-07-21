@@ -119,3 +119,16 @@
    border-radius: 8px;
 }
 
+/* Responsive media queries for header and hero section  */
+
+@media screen and (max-width:576px){
+    .nav-bar, .nav-bar ul {
+        padding: 1rem;
+        flex-direction: column;
+        align-items: self-start;
+        gap: 1rem;
+    }
+    .hero-section {
+        padding: 1rem;
+    }
+}
