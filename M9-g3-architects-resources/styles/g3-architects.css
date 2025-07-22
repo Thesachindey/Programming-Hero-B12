@@ -119,13 +119,77 @@
    border-radius: 8px;
 }
 
+/* features-section style  */
+
+
+.features-section {
+    padding: 3rem 10rem;
+    display: flex;
+    gap: 4rem;
+    align-items: center;
+    justify-content: center;
+}
+
+.features-sec-con1 {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 2rem;
+    padding: 1rem 0;
+    max-width: 400px;
+    min-width: 320px;
+}
+
+.team-img {
+    width: 100%;
+    border-radius: 12px;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.04);
+    background: #fff;
+}
+
+.features-sec-con2 {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: center;
+    gap: 1.5rem;
+    min-width: 320px;
+}
+
+.features-sec-con2 h2 {
+    font-size: 2rem;
+    line-height: 1.2;
+}
+
+.features-sec-con2 h2 #sp1 {
+   color: var(--text-gray);
+   font-weight: 500;
+}
+#sp2 {
+    color:black;
+    font-weight: 700;
+}
+#sp3 {
+    color: var(--primary-btn-bg);
+    font-weight: 700;
+}
+
+.features-sec-con2 {
+    color: #727272;
+    font-size: .7rem;
+    max-width: 400px;
+}
+
+
+
+/* Responsive styles */
+
 /* Responsive media queries */
 
 @media screen and (max-width:576px){
     .nav-bar, .nav-bar ul {
         padding: 1rem;
         flex-direction: column;
-        align-items: self-start;
+        align-items: flex-start;
         gap: 1rem;
     }
     .hero-section {
