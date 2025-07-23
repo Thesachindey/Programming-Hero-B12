@@ -120,7 +120,9 @@
 }
 
 /* features-section style  */
-
+main{
+    padding: 3rem 10rem;
+}
 
 .features-section {
     padding: 3rem 10rem;
@@ -135,8 +137,7 @@
     grid-template-columns: repeat(2, 1fr);
     gap: 2rem;
     padding: 1rem 0;
-    max-width: 400px;
-    min-width: 320px;
+    min-width: 30vw;
 }
 
 .team-img {
@@ -152,7 +153,7 @@
     align-items: flex-start;
     justify-content: center;
     gap: 1.5rem;
-    min-width: 320px;
+    min-width: 30vw;
 }
 
 .features-sec-con2 h2 {
@@ -176,23 +177,184 @@
 .features-sec-con2 {
     color: #727272;
     font-size: .7rem;
-    max-width: 400px;
+
 }
 
 
+
+/* experience section style  */
+.experience-section{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    gap: 2rem;
+}
+.box-con{
+     width:90%;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: center;
+    gap: 1rem;
+    padding: 2rem 0;
+    text-align: left;
+}
+.box-heading{
+    padding-left: 1rem;
+    font-size: 1.5rem;
+    text-align: left;
+    font-weight: 700;
+    color: var(--logo-black);
+    border-left: 4px solid var(--primary-btn-bg);
+}
+
+.box-para{
+    text-align: left;
+    font-size: .8rem;
+    color: var(--text-light-gray);
+}
+.card{
+    width:90%;
+    border-radius: 8px;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.04);
+    background: #fff;
+    padding: 1rem;
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    padding: 2rem 1rem;
+}
+.card h4{
+    font-size: .9rem;
+    font-weight:600;
+}
+.card p{
+    font-size: .6rem;
+    color: var(--text-light-gray);
+}
+
+ img{
+    width: 100%;
+    border-radius: 8px;
+}
+
+.badge-btn{
+   margin-top: -70%;
+   margin-left: -70%;
+}
+
+.primary-btn .btn-text1{
+    font-size: 3rem;
+    font-weight:bold;
+    color: white;
+}
+.primary-btn .btn-text2{
+    font-size: 1rem;
+    font-weight: 400;
+    color: white;
+}
+
+/* fact section style  */
+
+.fact-section {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: center;
+    gap: 2rem;
+    padding: 8rem 0;
+}
+.fact-card h2 {
+     font-size: 2rem;
+    font-weight: 700;
+    color: var(--text-gray);
+}
+.fact-card p {
+    font-size: .8rem;
+    font-weight: 600;
+    color: var(--text-light-gray);
+}
+
+.fact-card-con {
+    width: 100%;
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    justify-content: space-evenly;
+    gap: 4rem;
+    padding: 3rem 2rem;
+}
+
+.fact-card {
+    border: 1px solid var(--primary-btn-bg);
+    border-radius: 8px;
+    padding: 1.5rem ;
+    padding-bottom: 2.5rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    gap: 1rem;
+    min-width: 4vw;
+}
+.fact-card img{
+    width: 20%;
+}
 
 /* Responsive styles */
 
 /* Responsive media queries */
 
 @media screen and (max-width:576px){
-    .nav-bar, .nav-bar ul {
+    .nav-bar,
+     .nav-bar ul,
+     .features-section,
+     .experience-section{
         padding: 1rem;
         flex-direction: column;
-        align-items: flex-start;
+        align-items: center;
+        justify-content: center;
         gap: 1rem;
     }
-    .hero-section {
+    .hero-section,
+    .features-section,
+      main {
         padding: 1rem;
     }
+
+    .badge-btn{
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        margin-top: 0;
+        margin-left: 0;
+    }
+
+    .experience-section{
+        width:100%;
+    }
+  
+
+}
+/* for tablet */
+@media screen and (min-width:576px) and (max-width:992px){
+    .hero-section,.nav-bar {
+        padding: 3rem;
+    }
+    main {
+        padding: 3rem;
+       gap: 1rem;
+    }
+
+    .experience-section{
+        padding: 1rem;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        gap: 1rem;
+    }
+    
 }
