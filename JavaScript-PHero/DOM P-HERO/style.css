@@ -1,0 +1,42 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Poppins', sans-serif;
+    text-decoration: none;
+    list-style: none;
+    scroll-behavior: smooth;
+    scroll-padding-top: 2rem;
+    scroll-snap-type: y mandatory;
+}
+
+header {
+    margin-top: 0%;
+    position: fixed;
+    width: 100%;
+    top: 0;
+    right: 0;
+  
+    display: flex;
+    align-items: center;
+
+    background: var(--bg-color);
+    padding: 28px 12%;
+    transition: 0.2s;
+}
+
+
+nav {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 2rem;
+   
+}
+ul{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+   gap: 2rem;
+}

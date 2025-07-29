@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .box1{
+            width: 200px;
+            height: 100px;
+            background-color: lightblue;
+            overflow-y: auto;
+        }
+        .elipses{
+            width: 300px;
+            border: 2px solid black;
+            white-space: nowrap;
+            overflow: hidden;
+            /* text-overflow: ellipsis; */
+            text-overflow: clip;
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+    <div class="box1">
+        Lorem ipsum dolor sit amet consectetur adipisicing elit. Expedita dolore consectetur exercitationem eos quaerat itaque, aliquam omnis cumque quis aliquid fugiat. Consequatur laborum velit, possimus quae labore dicta dolore illum reiciendis odit, incidunt deserunt? Iusto pariatur consequatur animi? Excepturi expedita iure vitae non laudantium, unde sapiente inventore dolorem reiciendis animi maxime sed recusandae, magnam quam assumenda, sit ex explicabo corrupti cumque et! Animi soluta corporis sapiente optio illo omnis aperiam incidunt doloremque quo ex, iure quia ipsa officia beatae, blanditiis et delectus minus commodi maxime. Reiciendis iste incidunt quo dolorum ipsa voluptatem nemo, quis ut, accusantium minima animi dicta assumenda!
+    </div>
+    <div title="Lorem, ipsum dolor sit amet consectetur adipisicing elit. Eveniet tenetur praesentium unde nemo! Odit enim, officiis laudantium optio quibusdam reiciendis praesentium molestias doloribus error." class="elipses">Lorem, ipsum dolor sit amet consectetur adipisicing elit. Eveniet tenetur praesentium unde nemo! Odit enim, officiis laudantium optio quibusdam reiciendis praesentium molestias doloribus error.</div>
+</body>
+</html>
