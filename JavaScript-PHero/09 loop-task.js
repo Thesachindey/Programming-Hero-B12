@@ -9,6 +9,24 @@
 // }
 
 // _________________while loop____________
+
+// > কখন while loop ব্যবহার করা হয়?
+//  while loop তখন ব্যবহার করা হয় যখন:
+
+// আপনি জানেন না ঠিক কতবার লুপ চলবে
+// (যেমন ইউজার কখন সঠিক ইনপুট দিবে, সেটা আগে থেকে জানা নেই)
+
+// লুপ চালানোর জন্য একটি শর্ত নির্ভর করে
+// (যেমন: যতক্ষণ পর্যন্ত ইনপুট ভুল হচ্ছে, ততক্ষণ চালাতে হবে)
+
+
+// ⚠️ Note
+// Infinite loop if condition never becomes false.
+
+// Update loop variable inside the block.
+
+
+
 let num = 1;
 while (num <= 10) {
    console.log(`${num}`);
