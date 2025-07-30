@@ -1,6 +1,19 @@
+
+// ______________________for of loop__________
+// const number = [21, 24, 425, 5, 67, 7, 88, 5, 432, 3, 4]
+// console.log(number);
+// for (const num of number) {
+
+//    console.log(`i want to eat ${num}`);
+
+// }
+
 // _________________while loop____________
-
-
+let num = 1;
+while (num <= 10) {
+   console.log(`${num}`);
+   num++;
+}
 
 //---------------Task 1---------------
 // let count=1;
@@ -119,14 +132,14 @@
 
 
 
-let Oddsum=0;
-for (let index = 206; index <= 311; index++) {
-   if (index%2 !==0) {
-    Oddsum+=index;
-   }
+// let Oddsum=0;
+// for (let index = 206; index <= 311; index++) {
+//    if (index%2 !==0) {
+//     Oddsum+=index;
+//    }
 
-}
-console.log("The sum of all the Odd numbers from 206 to 311 is:",Oddsum);
+// }
+// console.log("The sum of all the Odd numbers from 206 to 311 is:",Oddsum);
 
 
 
