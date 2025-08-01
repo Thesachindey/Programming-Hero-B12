@@ -1,38 +1,40 @@
-// let age=1;
+let age = 1008;
 
-// if(age>=21&&age<=40){
-// console.log("You can seen this movie");
-// }
-// if (age==103) {
-//     console.log("Hehe you can!");
-// }
-// else{
-//     console.log("Vag");
-// }
+if (age >= 21 && age <= 40) {
+    console.log("You can seen this movie");
+}
+else if (age === 103) {
+    console.log("Hehe you can!");
+} else if (age > 103) {
+    console.log("you are allready death!!")
+}
+else {
+    console.log("Vag");
+}
 
 
 
 // --------------Nested if else---------------
-// let money=400;
+let money=400;
 
-// if (money>400) {
-//     console.log("Bro you are reach!!")
-// }
-// else{
-//     if (money>300) {
-//         console.log("Brought me some food!!")
-//     }
-//     else{
-//         if (money>100) {
-//             console.log("You are note reach not poor!")
-//         }
-//         else if(money>0){
-//             console.log("Chol muri kahi")
-//         }
-//         else{
-//             if (money<0) {
-//                 console.log("You are note my friend ")
-//             }
-//         }
-//     }
-// }
+if (money>400) {
+    console.log("Bro you are reach!!")
+}
+else{
+    if (money>300) {
+        console.log("Brought me some food!!")
+    }
+    else{
+        if (money>100) {
+            console.log("You are note reach not poor!")
+        }
+        else if(money>0){
+            console.log("Chol muri kahi")
+        }
+        else{
+            if (money<0) {
+                console.log("You are note my friend ")
+            }
+        }
+    }
+}
