@@ -44,8 +44,8 @@ console.log(reminder);//4
 //input 
 
 // NaN(Note a Number)
-var k = isNaN('998');
-var L = isNaN('HELLO');
+var k = isNaN('998');//false
+var L = isNaN('HELLO');//true
 //output
 console.log(k); //false
 console.log(L); //true
