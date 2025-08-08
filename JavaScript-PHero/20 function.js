@@ -9,10 +9,10 @@
 
 //borgo function
 function borgo(num){
-    let borgoNum = num*num;
+    let borgoNum = num**2;
     console.log(`The square of ${num} is:`,borgoNum);
 }
-borgo(5);
+borgo(1275371);
 
 function total(a,b,c,d,e) {
     let sum=a+b+c+d+e;

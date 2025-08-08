@@ -6,11 +6,11 @@
 
 //2._______________While loop_______________
 
-// let num=0;
-// while (num<=10) {
-//     console.log(num);
-//     num++;
-// }
+let num=0;
+while (num<=10) {
+    console.log(num);
+    num++;
+}
 
 
 // let Xp=0;

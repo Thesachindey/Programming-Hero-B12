@@ -9,7 +9,7 @@ console.log(question.slice(0,5));
 
 // //----------------split----------- string.split(separator, limit)
 let words="harry potter,jk rowling,fantastic beats,harry potter and the chamber of secrets";
-let spWords=words.split("  ");
+let spWords=words.split(" ");
 
 console.log(spWords.join(" "));
 
