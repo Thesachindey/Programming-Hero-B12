@@ -1,0 +1,28 @@
+#bulb{
+    height: 200px;
+    width: 200px;
+    /* background-color: yellow; */
+    border-radius: 50%;
+    /* box-shadow: 0 0 1000px rgba(255, 255, 0, 0.626); */
+    border: 2px solid rgba(255, 255, 0, 0.605);
+
+}
+body{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    background-color: black;
+    flex-direction: column;
+    gap: 20px;
+
+}
+
+button{
+    padding: 10px 20px;
+    font-size: 16px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
