@@ -42,40 +42,40 @@ let Tim = 20;
 
 //___________find the largest number from an array__________
 
-// const arr = [65, 66, 68, 72, 78, 60, 65, 66, 99, 100];
+const arr = [65, 66, 68, 72, 78, 40, 65, 66, 99, 100];
 
-// function getHightsNum(numArr) {
-//     let maxNum = [0];
-//     for (const num of numArr) {
-//         if (num > maxNum) {
-//             maxNum = num;
-//         }
-//     }
-//     return maxNum;
-// }
-// let heightsOfArr = getHightsNum(arr);
-// console.log("this is hights num of this arr", heightsOfArr);
-
+function getHighestNum(arrWithNum) {
+    let maxNum = arrWithNum[0];
+    for (const num of arrWithNum) {
+        if (num < maxNum) {
+            maxNum = num;
+        }
+    }
+    // console.log(maxNum)
+    return maxNum;
+}
+let maxNumOfArr = getHighestNum(arr);
+console.log(`The max number of arry is the => ${maxNumOfArr}`);
 // ----------------------------------
-//find the largest number from an array using Math.max() method
-// const heights=[65,66,68,72,78,60,65,66];
-// const maxNum=Math.max(...heights);// spread operator (...) is used to spread the array elements as individual arguments to the Math.max() function.
-// console.log(`the largest number is ${maxNum}`);
+// find the largest number from an array using Math.max() method
+const heights=[65,66,68,72,78,60,65,66];
+const maxNum=Math.min(...heights);// spread operator (...) is used to spread the array elements as individual arguments to the Math.max() function.
+console.log(`the largest number is ${maxNum}`);
 
 // //___________find the smallest number from an array__________
 
-// function getMin(numArr){
-//     let minNum=numArr[0];
-//     for (const num of numArr) {
-//         if (num<minNum) {
-//             minNum=num;
+function getMin(numArr){
+    let minNum=numArr[0];
+    for (const num of numArr) {
+        if (num<minNum) {
+            minNum=num;
 
-//         }
-//     }
-//     return minNum;
-// }
-// const minNum=getMin(heights);
-// console.log('min value is',minNum);
+        }
+    }
+    return minNum;
+}
+const minNum=getMin(heights);
+console.log('min value is',minNum);
 
 // */ total wood needed for chair,table,bed
 
@@ -95,19 +95,19 @@ let Tim = 20;
 
 // ______minimum phone price search from an array______
 
-const phonePrices=[10000,15000,20000,25000,30000,35000,40000,45000,50000,55000,60000];
+// const phonePrices=[10000,15000,20000,25000,30000,35000,40000,45000,50000,55000,60000];
 
-function getMinPrice(prices) {
-    let minPrice=prices[0];
-    for (const price of prices) {
-        if (price<minPrice) {
-            minPrice=price;
-        }
-    }
-    return minPrice;
-}
-const minPrice=getMinPrice(phonePrices);
-console.log('minimum price is',minPrice);
+// function getMinPrice(prices) {
+//     let minPrice=prices[0];
+//     for (const price of prices) {
+//         if (price<minPrice) {
+//             minPrice=price;
+//         }
+//     }
+//     return minPrice;
+// }
+// const minPrice=getMinPrice(phonePrices);
+// console.log('minimum price is',minPrice);
 
 // __________________if array with object____________________
 

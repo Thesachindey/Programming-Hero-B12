@@ -18,44 +18,49 @@
 </head>
 
 <body>
-    <div
-        class="parent-div flex flex-col md:flex-row items-center justify-between px-6 md:px-28 py-8 md:py-12 min-h-[200px] mx-auto"
-    >
-        <div class="left-div flex flex-col gap-y-4 w-full md:w-[50%] -mt-4 md:-mt-8">
-            <h1 class="text-3xl md:text-6xl font-bold">
-                It's good <br />
-                tea time at The <br />
-                Tea House
-            </h1>
-            <p class="text-[#777777] text-sm md:text-base font-medium">
-                Tea and Botanical Solutions Supplier Give Optimum <br class="hidden md:block" />
-                Satisfaction To Your Taste Buds.
-            </p>
-            <span>
-                <button
-                    class="p-2 md:p-3 text-white bg-slate-400 text-sm md:text-base font-medium rounded-md bg-[linear-gradient(270deg,rgba(255,0,0,1),rgba(255,137,56,1)100%)]"
-                >
-                    Explore More
-                    <span><i class="fa-solid fa-arrow-right -rotate-45"></i></span>
-                </button>
-            </span>
-        </div>
-        <div class="right-div mt-8 md:mt-15 w-full md:w-[50%] relative">
-            <img class="w-full" src="./images/banner.png" alt="" srcset="" />
+    <!-- Header section start here -->
+    <header class="px-4 md:px-12 py-4 md:py-4 mx-6 md:mx-12 my-6 md:my-12">
+        <div class="parent-div flex flex-col md:flex-row items-center justify-between">
+            <!-- Left Div start here -->
+            <div class="left-div flex flex-col gap-y-4 w-full md:w-[50%]  md:-mt-8  ">
+                <h1 class="text-3xl md:text-6xl font-bold">
+                    It's good <br />
+                    tea time at The <br />
+                    Tea House
+                </h1>
+                <p class="text-[#777777] text-sm md:text-base font-medium">
+                    Tea and Botanical Solutions Supplier Give Optimum <br class="hidden md:block" />
+                    Satisfaction To Your Taste Buds.
+                </p>
+                <span>
+                    <button
+                        class="p-2 md:p-3 text-white bg-slate-400 text-sm md:text-base font-medium rounded-md bg-[linear-gradient(270deg,rgba(255,0,0,1),rgba(255,137,56,1)100%)]">
+                        Explore More
+                        <span><i class="fa-solid fa-arrow-right -rotate-45"></i></span>
+                    </button>
+                </span>
+            </div>
 
-            <div
-                class="star-badge flex flex-row items-center justify-center gap-x-2 md:gap-x-4 absolute bottom-2 md:bottom-6 left-4 md:left-20 bg-white px-3 md:px-5 py-2 md:py-3 rounded-md shadow-2xl"
-            >
-                <i class="fa-solid fa-star text-[#FFD700] text-lg md:text-xl"></i>
-                <div class="star-con text-xs md:text-sm font-semibold">
-                    <h2 class="text-base md:text-lg font-bold">5.00</h2>
-                    <p class="text-xs md:text-sm font-semibold text-[#777777]">
-                        Trust Pilot Ratings
-                    </p>
+            <!-- Right Div start here -->
+            <div class="right-div flex items-center justify-center mt-8 md:mt-15 w-full md:w-[50%] relative">
+                <img class="" src="./images/banner.png" alt="" srcset="" />
+
+                <!-- star-badge start here -->
+                <div
+                    class="star-badge flex flex-row items-center justify-center gap-x-2 md:gap-x-4 absolute bottom-2 md:bottom-6 left-4 md:left-20 bg-white px-3 md:px-5 py-2 md:py-3 rounded-md shadow-2xl">
+                    <i class="fa-solid fa-star text-[#FFD700] text-lg md:text-xl"></i>
+                    <div class="star-con text-xs md:text-sm font-semibold">
+                        <h2 class="text-base md:text-lg font-bold">
+                            5.00
+                        </h2>
+                        <p class="text-xs md:text-sm font-semibold text-[#777777]">
+                            Trust Pilot Ratings
+                        </p>
+                    </div>
                 </div>
             </div>
         </div>
-    </div>
+    </header>
 </body>
 
 </html>

@@ -1,19 +1,59 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>DOM Traversing</title>
+    <link rel="stylesheet" href="./style.css">
 </head>
+
 <body>
-    <h1 >Murderer List</h1>
-    <ol id="murderer-list">
-        <li>David</li>
-        <li>Marhum</li>
-        <li>John</li>
-        <li>Mujib</li>
-        <li>Lionel</li>
-    </ol>
+    <header>
+        <nav class="navbar">
+            <a href="#" id="nav-logo">Demo Restaurant</a>
+            <ul>
+                <li><a href="#menu" class="active">Menu</a></li>
+                <li><a href="#about">About Us</a></li>
+                <li><a href="#contact">Contact</a></li>
+            </ul>
+        </nav>
+        <h1>Welcome to Demo Restaurant</h1>
+    </header>
+
+    <section id="menu">
+        <h2>Our Menu</h2>
+        <ul>
+            <li>
+                <h3 class="menu-item">Margherita Pizza</h3>
+                <p>Classic pizza with tomato, mozzarella, and basil.</p>
+                <span>$10</span>
+            </li>
+            <li>
+                <h3 class="menu-item">Spaghetti Carbonara</h3>
+                <p>Pasta with creamy sauce, bacon, and parmesan.</p>
+                <span>$12</span>
+            </li>
+            <li>
+                <h3 class="menu-item">Caesar Salad</h3>
+                <p>Fresh romaine, croutons, parmesan, and Caesar dressing.</p>
+                <span>$8</span>
+            </li>
+        </ul>
+    </section>
+
+    <section id="about">
+        <h2>About Us</h2>
+        <p>Demo Restaurant offers delicious Italian cuisine in a cozy atmosphere. Perfect for family dinners and
+            friendly gatherings.</p>
+    </section>
+
+    <section id="contact">
+        <h2>Contact</h2>
+        <p>Email: info@demorestaurant.com</p>
+        <p>Phone: (123) 456-7890</p>
+    </section>
     <script src="./script.js"></script>
 </body>
+
 </html>

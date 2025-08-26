@@ -1,0 +1,115 @@
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f5f6fa;
+    margin: 0;
+    padding: 0;
+}
+
+.container {
+    max-width: 900px;
+    margin: 40px auto;
+    background: #fff;
+    border-radius: 8px;
+    /* ...existing code... */
+
+  
+}
+
+h1,
+h2,
+h3 {
+    color: #273c75;
+    font-family: 'Segoe UI', 'Arial', sans-serif;
+    margin-bottom: 16px;
+    letter-spacing: 1px;
+    text-shadow: 0 2px 8px rgba(64, 120, 192, 0.08);
+}
+
+h1 {
+    font-size: 2.5rem;
+    font-weight: 700;
+    border-bottom: 2px solid #4078c0;
+    padding-bottom: 12px;
+    margin-bottom: 24px;
+}
+
+h2 {
+    font-size: 2rem;
+    font-weight: 600;
+    margin-top: 32px;
+    margin-bottom: 18px;
+}
+
+h3 {
+    font-size: 1.4rem;
+    font-weight: 500;
+    margin-top: 24px;
+    margin-bottom: 12px;
+}
+
+ul,
+ol {
+    padding-left: 24px;
+}
+
+button {
+    background: #4078c0;
+    color: #fff;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 16px;
+    transition: background 0.2s;
+}
+
+button:hover {
+    background: #273c75;
+}
+
+.navbar {
+    width: 100%;
+    background-color: #273c75;
+    margin-bottom: 32px;
+    box-shadow: 0 2px 8px rgba(64, 120, 192, 0.10);
+    border-radius: 0 0 8px 8px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0;
+}
+
+.nav-logo {
+    color: #fff;
+    font-size: 1.5rem;
+    font-weight: 700;
+    padding: 16px 32px;
+    text-decoration: none;
+    letter-spacing: 2px;
+}
+
+.navbar ul {
+    list-style: none;
+    display: flex;
+    margin: 0;
+    padding: 0;
+}
+
+.navbar ul li {
+    margin: 0 8px;
+}
+
+.navbar ul li a {
+    color: #fff;
+    text-decoration: none;
+    padding: 16px 18px;
+    display: block;
+    font-size: 1rem;
+    border-radius: 4px;
+    transition: background 0.2s;
+}
+
+.navbar ul li a:hover,
+.navbar ul li a.active {
+    background: #4078c0;
+}

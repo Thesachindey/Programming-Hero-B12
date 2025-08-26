@@ -1,7 +1,7 @@
 // 12 inch = 1 feet
 // 1 kilometer = .621371 miles
 // 1 mile = 1.60934 kilometers
-
+/**{
 // 1. inchToFeet
 function inchToFeet(inch) {
     const feet = inch / 12;
@@ -34,3 +34,19 @@ const km=mile*1.60934;
 return console.log(`${mile} mile = ${km.toFixed(2)} km`);
 }
 milesToKm(13.048791);
+}*/
+
+
+// for (var i = 0; i < 5; i++) {   setTimeout(function () {   console.log(i);   }, 1); }
+
+
+// console.log(Math.pow(2,3));// like 2**3=8
+
+console.log(Math.ceil(0.95));
+// Expected output: 1
+console.log(Math.ceil(4));
+// Expected output: 4
+console.log(Math.ceil(7.004));
+// Expected output: 8
+console.log(Math.ceil(-7.004));
+// Expected output: -7
