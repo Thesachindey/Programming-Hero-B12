@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- logo and title -->
+    <link rel="shortcut icon" href="./assets/logo.png" type="image/x-icon">
+    <title>English Janala | Best platform for learning English</title>
+
+    <!-- added font awesome cdn -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css"
+        integrity="sha512-2SwdPD6INVrV/lHTZbO2nodKhrnDdJK9/kg2XD1r9uGqPo1cUbujc+IYdlYdEErWNu69gVcYgdxlmVmzTWnetw=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+
+    <!-- daisyUi and tailwindCSS cdn -->
+    <link href="https://cdn.jsdelivr.net/npm/daisyui@5" rel="stylesheet" type="text/css" />
+    <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+
+
+    <!-- custom css file -->
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <!-- header section start here -->
+    <header>
+        <!-- navbar start here  -->
+        <nav>
+            <div class="navbar bg-base-100 shadow-sm md:px-20 bg-[#edf6ff]">
+                <div class="navbar-start">
+                    <div class="dropdown">
+                        <div tabindex="0" role="button" class="btn btn-ghost lg:hidden">
+                            <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24"
+                                stroke="currentColor">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                    d="M4 6h16M4 12h8m-8 6h16" />
+                            </svg>
+                        </div>
+                        <ul tabindex="0"
+                            class="menu menu-sm dropdown-content bg-base-100 rounded-box z-1 mt-3 w-52 p-2 shadow">
+
+                            <li>
+                                <a href="" class=" "><i class="fa-solid fa-circle-question"></i>FAQ</a>
+                            </li>
+                            <li>
+                                <a href="" class=" "><i class="fa-solid fa-book-open"></i>Learn</a>
+                            </li>
+                            <li>
+                                <a href="" class=" "><i class="fa-solid fa-arrow-right-from-bracket"></i>Logout</a>
+                            </li>
+
+                        </ul>
+                    </div>
+                    <a class=" flex items-center gap-1 ">
+                        <span class="text-lg font-bold">English</span>
+                        <img class="size-7" src="./assets/logo.png" alt="logo">
+                        <span class="text-lg font-[bangla-font] font-semibold">জানালা</span>
+                    </a>
+                </div>
+                <div class="navbar-end hidden lg:flex">
+                    <ul class="menu menu-horizontal px-1 space-x-2">
+                        <li>
+                            <a href="" class="btn btn-outline btn-primary "><i
+                                    class="fa-solid fa-circle-question"></i>FAQ</a>
+                        </li>
+                        <li>
+                            <a href="" class="btn btn-outline btn-primary "><i
+                                    class="fa-solid fa-book-open"></i>Learn</a>
+                        </li>
+                        <li>
+                            <a href="" class="btn btn-outline btn-primary "><i
+                                    class="fa-solid fa-arrow-right-from-bracket"></i>Logout</a>
+                        </li>
+                    </ul>
+                </div>
+
+            </div>
+        </nav>
+
+
+        <!-- hero section start here -->
+        <section
+            class="hero  flex flex-col-reverse md:flex-row gap-10 justify-between items-center md:px-20 px-4 py-5 w-full">
+
+            <div class="content sm:w-1/2 text-center md:text-left flex flex-col gap-5">
+                <h2 class="text-4xl font-bold  ">
+                    <span class="text-sky-400">English</span> is Easy!!
+                </h2>
+                <p class="font-[bangla-font] font-medium">আজ থেকেই আপনার ভাষা শেখার যাত্রা শুরু করুন। আপনি যদি নতুন হন
+                    অথবা আপনার দক্ষতা বাড়াতে চান, আমাদের Interactive Lessons আপনাকে নিয়ে যাবে অন্য একটি Level এ</p>
+
+                <div class="login flex flex-col items-center md:items-start gap-3">
+                    <input type="email" placeholder="Enter Your Email" class="input w-full md:w-[50%]" />
+                    <input type="password" placeholder="******" class="input w-full md:w-[50%]" />
+                    <span class=" w-full flex items-start">
+                        <button class="btn btn-primary cursor-pointer">Get Started</button>
+                    </span>
+                </div>
+            </div>
+            <div class="img-cont sm:w-1/2 flex justify-end">
+                <img src="./assets/hero-student.png" alt="">
+            </div>
+        </section>
+
+    </header>
+
+    <!-- lessons section start here -->
+    <section class="lessons-section  flex flex-col gap-10 justify-center items-center text-center md:px-20 px-4 py-20 ">
+        <h2 class="text-4xl font-bold  ">
+            <span class="text-sky-400">Let's</span> Learn Vocabulary
+        </h2>
+
+        <div class="label-container flex flex-wrap justify-center items-center ">
+            <!-- lessons level append here dynamically -->
+        </div>
+
+    </section>
+
+    <!-- script file linked here -->
+    <script src="./script/index.js"></script>
+</body>
+
+</html>
