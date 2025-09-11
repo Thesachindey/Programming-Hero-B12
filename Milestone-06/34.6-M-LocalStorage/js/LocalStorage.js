@@ -1,22 +1,32 @@
-const addNumberToLS = () => {
-    const number = Math.ceil(Math.random() * 100)
-    console.log(number);
-    localStorage.setItem('number', number)
+const setRnumToLS=()=>{
+    const RanNum=Math.floor(Math.random()*10)+1;
+    console.log(RanNum);
+    localStorage.setItem('Random Num',RanNum);
+}
+const getRanNumOfLS=()=>{
+    const getRanNum=localStorage.getItem('Random Num');
+    console.log(getRanNum);
 }
 
-const setObjectToLS = () => {
-    const customer = { name: 'rohim khalu', products: 3, price: 75 }
-    const customerJSON = JSON.stringify(customer)
-    localStorage.setItem('customer', customerJSON);
-
+//its return problem [object,object]
+// const setObjToLS=()=>{
+//     const obj={name:"Jalal Uddin", Work:"Solder", WorkFor:"Ikhtar Uddin Bakhtiar Khilji"}
+//     localStorage.setItem('Info',obj)
+    
+// }
+// const getObjFromLS=()=>{
+//     localStorage.getItem('Info')
+        
+// }
+const setObjToLS=()=>{
+    const obj={name:"Jalal Uddin", Work:"Solder", WorkFor:"Ikhtar Uddin Bakhtiar Khilji"}
+    let jsonObj=JSON.stringify(obj);
+    localStorage.setItem('Info',jsonObj);
+    console.log(jsonObj);
+    
 }
-
-const readObjectFromLS = () =>{
-    const customerJSON = localStorage.getItem('customer')
-    const customer = JSON.parse(customerJSON)
-    console.log(customer.name)
-}
-const getNumberFromLS = () => {
-    const number = localStorage.getItem('number');
-    console.log('from saved local storage', number)
+const getObjFromLS=()=>{
+  let JsonObj=  localStorage.getItem('Info');
+    let Obj=JSON.parse(JsonObj);
+    console.log(Obj);
 }
