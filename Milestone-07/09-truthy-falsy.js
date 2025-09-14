@@ -18,4 +18,21 @@ const test = 0;
 const num = 30;
 // multiple condition thakly 
 const result = (num <= 20 && num >= 50) ? "true" : "false"
-console.log(result);
+// console.log(result);
+
+
+// logical not !
+// const isActive = true;
+// console.log(!isActive)
+
+
+const isUser = false;
+const showUser = () => console.log('show user green!');
+const hideUser = () => console.log('hide user!');
+
+// isUser ? showUser() : hideUser();
+
+//aykta kaj koraty chily
+// isUser && showUser(); //true holy kaj korby
+
+isUser || showUser();//false holy kaj korby
