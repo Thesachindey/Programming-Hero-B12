@@ -10,3 +10,8 @@ const bollywoodHeroes = [
     "Ajay Devgn",
     "Varun Dhawan"
 ];
+
+for (let index = 0; index < bollywoodHeroes.length; index++) {
+    const element = bollywoodHeroes[index];
+    console.log(index,element);
+}
