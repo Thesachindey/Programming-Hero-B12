@@ -1,6 +1,8 @@
 
-import './App.css'
-import ToDo from './Todo'
+import './App.css';
+import ToDo from './Todo';
+import Book from "./Book";
+
 
 function App() {
 
@@ -12,6 +14,11 @@ function App() {
       <ToDo Task='Learn React' isDone={true}></ToDo>
       <ToDo Task='Revision Js' isDone={false}></ToDo>
       <ToDo Task='Study' isDone={true}></ToDo>
+      <ToDo Task='Shopping' isDone={true}></ToDo>
+      <h1>Book List</h1>
+      <Book  person='Ankon' book1='The Apu Trilogy' book2='The Alchemist' book3='Harry Potter All'></Book>
+      <Book  person='Joy' book1='The Khoka Babu Trilogy' book2='The Pookie' book3='How To Become Famoos'></Book>
+      <Book  person='Abhay Chran' book1='The Apu Trilogy' book2='The Alchemist' book3='Rabindra Samagra'></Book>
       {/* <Person name='Sachin Dey'right='He can, If he work heard and maintain his consistency.'></Person>
       <Like like1='Doing Coding' like2='Reading' like3='Learning new Skill' like4='Traveling'></Like>
       <Person name='Boga Mask' right='NO,but he also can If he stop all of this bullshit.'></Person>
@@ -35,7 +42,7 @@ function Person(props) {
 
 //like to do
 /**
- * NOTE:Property-->
+ * NOTE:Property(props return object )-->
  * here we aces the property by object destructuring.
  * with out using props. (props.Property).
  * const property {like1,like2,like3,like4}={like1: 'Doing Coding', like2: 'Reading', like3: 'Learning new Skill', like4: 'Traveling'}
@@ -48,7 +55,7 @@ function Person(props) {
  * NOTE: We also can use out side style.css file & Tailwind CSS
  */
 
-function Like( {like1,like2,like3,like4}) {
+function Like({ like1, like2, like3, like4 }) {
 
   const likeTitle = {
     color: 'red',
@@ -56,12 +63,12 @@ function Like( {like1,like2,like3,like4}) {
   }
   return (
     <div className='styleCard'>
-      <h5 className='likeTitle' style={likeTitle}>Like to do:</h5>
+      <h5 style={likeTitle}>Like to do:</h5>
       <ul style={{
         listStyle: 'none',
         color: 'blue',
         textAlign: 'left',
-        fontSize:'1.5rem'
+        fontSize: '1.5rem'
       }}>
         <h5>{like1}</h5>
         <h5>{like2}</h5>
