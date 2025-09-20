@@ -10,13 +10,13 @@ function App() {
 
   return (
     <>
-    <div style={{  width: '100%' }} >
+      <div >
 
 
-      <Suspense fallback={<h1>Loading...</h1>}>
-        <Countries countriesPromise={countriesPromise}></Countries>
-      </Suspense>
-    </div>
+        <Suspense fallback={<h1>Loading...</h1>}>
+          <Countries countriesPromise={countriesPromise}></Countries>
+        </Suspense>
+      </div>
     </>
   )
 }
