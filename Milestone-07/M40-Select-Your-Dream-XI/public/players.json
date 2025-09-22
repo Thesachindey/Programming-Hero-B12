@@ -1,0 +1,134 @@
+[
+  {
+    "id": 1,
+    "name": "Virat Kohli",
+    "country": "India",
+    "role": "Batsman",
+    "battingStyle": "Right-Hand-Bat",
+    "bowlingStyle": "Right-Arm Medium",
+    "rating": 10,
+    "price": 2000000,
+    "image": "https://i.ibb.co.com/1Gt6LFhB/Virat-Kohli.jpg"
+  },
+  {
+    "id": 2,
+    "name": "Rohit Sharma",
+    "country": "India",
+    "role": "Batsman",
+    "battingStyle": "Right-Hand-Bat",
+    "bowlingStyle": "Right-Arm Offbreak",
+    "rating": 9,
+    "price": 1800000,
+    "image": "https://i.ibb.co.com/BHLB0Dgr/Rohit-Gurunath-Sharma.jpg"
+  },
+  {
+    "id": 3,
+    "name": "Shakib Al Hasan",
+    "country": "Bangladesh",
+    "role": "All-Rounder",
+    "battingStyle": "Left-Hand-Bat",
+    "bowlingStyle": "Left-Arm Orthodox Spin",
+    "rating": 9,
+    "price": 1700000,
+    "image": "https://i.ibb.co.com/pr1FL4ZZ/sakib.jpg"
+  },
+  {
+    "id": 4,
+    "name": "Rashid Khan",
+    "country": "Afghanistan",
+    "role": "Bowler",
+    "battingStyle": "Right-Hand-Bat",
+    "bowlingStyle": "Right-Arm Leg Spin",
+    "rating": 8,
+    "price": 1600000,
+    "image": "https://i.ibb.co.com/mVxLJrtK/rasid-khan.jpg"
+  },
+  {
+    "id": 5,
+    "name": "MS Dhoni",
+    "country": "India",
+    "role": "Wicket-Keeper",
+    "battingStyle": "Right-Hand-Bat",
+    "bowlingStyle": "N/A",
+    "rating": 9,
+    "price": 1900000,
+    "image": "https://i.ibb.co.com/3Y75W3F2/ms-dhoni.jpg"
+  },
+  {
+    "id": 6,
+    "name": "David Warner",
+    "country": "Australia",
+    "role": "Batsman",
+    "battingStyle": "Left-Hand-Bat",
+    "bowlingStyle": "Right-Arm Leg Spin",
+    "rating": 8,
+    "price": 1750000,
+    "image": "https://i.ibb.co.com/60H27nMM/david-Warnar.jpg"
+  },
+  {
+    "id": 7,
+    "name": "Chris Gayle",
+    "country": "West Indies",
+    "role": "Batsman",
+    "battingStyle": "Left-Hand-Bat",
+    "bowlingStyle": "Right-Arm Offbreak",
+    "rating": 9,
+    "price": 1800000,
+    "image": "https://w0.peakpx.com/wallpaper/271/533/HD-wallpaper-cricket-player-chris-gayle-west-indies-player-cricketer-thumbnail.jpg"
+  },
+  {
+    "id": 8,
+    "name": "Andre Russell",
+    "country": "West Indies",
+    "role": "All-Rounder",
+    "battingStyle": "Right-Hand-Bat",
+    "bowlingStyle": "Right-Arm Fast",
+    "rating": 7,
+    "price": 1850000,
+    "image": "https://assets.thehansindia.com/h-upload/feeds/2019/04/28/500x300_168973-russell.jpg"
+  },
+  {
+    "id": 9,
+    "name": "Ben Stokes",
+    "country": "England",
+    "role": "All-Rounder",
+    "battingStyle": "Left-Hand-Bat",
+    "bowlingStyle": "Right-Arm Fast-Medium",
+    "rating": 9,
+    "price": 1900000,
+    "image": "https://wallpapers.com/images/hd/ben-stokes-england-team-captain-9lnz8wd6kgsusev8.jpg"
+  },
+  {
+    "id": 10,
+    "name": "Kane Williamson",
+    "country": "New Zealand",
+    "role": "Batsman",
+    "battingStyle": "Right-Hand-Bat",
+    "bowlingStyle": "Right-Arm Offbreak",
+    "rating": 8,
+    "price": 1750000,
+    "image": "https://media.gettyimages.com/id/1400420158/photo/london-england-kane-williamson-of-new-zealand-poses-during-a-portrait-session-at-lords.jpg?s=612x612&w=0&k=20&c=TXtCNVwIn9doDGwzN8l6xMpd8JTmgj5OOaQJLrJM--8="
+  },
+  {
+    "id": 11,
+    "name": "Babar Azam",
+    "country": "Pakistan",
+    "role": "Batsman",
+    "battingStyle": "Right-Hand-Bat",
+    "bowlingStyle": "Right-Arm Offbreak",
+    "rating": 8,
+    "price": 1850000,
+    "image": "https://i.ibb.co.com/p6Ntrh85/babar.jpg"
+  },
+  {
+    "id": 12,
+    "name": "Jasprit Bumrah",
+    "country": "India",
+    "role": "Bowler",
+    "battingStyle": "Right-Hand-Bat",
+    "bowlingStyle": "Right-Arm Fast",
+    "rating": 9,
+    "price": 1700000,
+    "image": "https://i.ibb.co.com/39mJYm3f/bumra.jpg"
+  }
+]
