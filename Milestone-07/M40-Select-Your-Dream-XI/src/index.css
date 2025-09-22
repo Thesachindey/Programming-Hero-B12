@@ -1,7 +1,10 @@
 @import "tailwindcss";
 @plugin "daisyui";
+@import url('https://fonts.googleapis.com/css2?family=Sora:wght@100..800&display=swap');
 
 :root {
-    background-color: white;
-    color: black;
+    /* if data-theme="light" is set dark we can use these styles or {data-theme="light" add this on <html>}*/
+    /* background-color: white;
+    color: black; */
+    font-family: 'Sora', sans-serif;
 }

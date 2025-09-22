@@ -2,25 +2,41 @@ import './App.css'
 import AvailablePlayers from './components/AvailablePlayers/AvailablePlayers';
 import SelectedPlayers from './components/SelectedPlayers/SelectedPlayers';
 import Navbar from './components/Navbar/Navbar';
-import { Suspense } from 'react';
+import { Suspense, useState } from 'react';
 
 // fetching players data
 const fetchPlayers = fetch('/players.json').then(res => res.json());
 
 function App() {
+  const [toggle, setToggle] = useState(true);
+  const [availableBalance, setAvailableBalance] = useState(6000000);// initial available balance
 
 
 
   return (
     < >
 
-      <Navbar></Navbar>
+      <Navbar availableBalance={availableBalance}></Navbar>
+
+      {/* active players and selected players header */}
+      <div className=' max-w-[1200px] mx-auto mt-10 p-4 text-center flex justify-between items-center'>
+        <h1 className='font-bold text-2xl'>Available Players</h1>
+        <div className='flex justify-center '>
+          <button onClick={() => setToggle(true)} className={` cursor-pointer px-4 py-2 border-gray-400 border-1  border-r-0 rounded-r-[0px] rounded-l-xl font-semibold ${toggle && "bg-[#E7FE29]"
+            }`}>Available</button>
+          <button onClick={() => setToggle(false)} className={`cursor-pointer px-4 py-2 border-gray-400 border-1 border-l-0 rounded-l-[0px] rounded-r-xl font-semibold ${toggle === false && "bg-[#E7FE29]"} `}>Selected <span>(0)</span></button>
+        </div>
+      </div>
 
       {/* available players */}
-      <Suspense fallback={<span className="loading loading-ring loading-xl"></span>}>
-        <AvailablePlayers playersPromise={fetchPlayers}></AvailablePlayers>
-      </Suspense>
-      {/* <SelectedPlayers></SelectedPlayers> */}
+
+      {/* selected players */}
+      {
+        toggle ? <Suspense fallback={<span className="loading loading-ring loading-xl"></span>}>
+          <AvailablePlayers playersPromise={fetchPlayers} availableBalance={availableBalance} setAvailableBalance={setAvailableBalance} ></AvailablePlayers>
+        </Suspense> : <SelectedPlayers></SelectedPlayers>
+      }
+
 
     </>
   )
