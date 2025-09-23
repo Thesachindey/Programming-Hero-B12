@@ -9,7 +9,7 @@ const PlayerCard = ({ player, setAvailableBalance, availableBalance, purchasedPl
     // handle select player button click
     const handleSelect = (player) => {
         if (availableBalance < player.price) {
-            toast('Insufficient balance to select this player.');
+            toast('Insufficient balance to purchase this player.');
             return;
         }
         if (purchasedPlayers.length >= 6) {
