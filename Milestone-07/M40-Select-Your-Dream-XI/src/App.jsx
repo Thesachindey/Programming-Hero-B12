@@ -2,9 +2,9 @@ import './App.css'
 import AvailablePlayers from './components/AvailablePlayers/AvailablePlayers';
 import SelectedPlayers from './components/SelectedPlayers/SelectedPlayers';
 import Navbar from './components/Navbar/Navbar';
-import { Suspense, useState } from 'react';
- import { ToastContainer} from 'react-toastify';
-  import 'react-toastify/dist/ReactToastify.css';
+import { Suspense, use, useState } from 'react';
+import { toast, ToastContainer } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 // fetching players data
 const fetchPlayers = fetch('/players.json').then(res => res.json());
 
@@ -12,11 +12,16 @@ function App() {
   const [toggle, setToggle] = useState(true);// toggle state for available and selected players
   const [availableBalance, setAvailableBalance] = useState(14000000);// initial available balance
   const [purchasedPlayers, setPurchasedPlayers] = useState([]); // purchased players list state
+  const playersData = use(fetchPlayers);
+  // console.log(playersData);
+  const [mainData, setMainData] = useState(playersData);
+
 
   const removePlayer = (p) => {
     const remainingPlayers = purchasedPlayers.filter(player => player.id !== p.id);
     setPurchasedPlayers(remainingPlayers);
     setAvailableBalance(availableBalance + p.price);
+     
   }
 
   return (
@@ -45,15 +50,19 @@ function App() {
         toggle
           ?
           <Suspense fallback={<span className="loading loading-ring loading-xl"></span>}>
-            <AvailablePlayers playersPromise={fetchPlayers} availableBalance={availableBalance} setAvailableBalance={setAvailableBalance} purchasedPlayers={purchasedPlayers} setPurchasedPlayers={setPurchasedPlayers}></AvailablePlayers>
+            <AvailablePlayers mainData={mainData} setMainData={setMainData} availableBalance={availableBalance} setAvailableBalance={setAvailableBalance} purchasedPlayers={purchasedPlayers} setPurchasedPlayers={setPurchasedPlayers}></AvailablePlayers>
           </Suspense>
           :
           <SelectedPlayers purchasedPlayers={purchasedPlayers} removePlayer={removePlayer}></SelectedPlayers>
       }
       <div className=' max-w-[1200px] mx-auto mt-10 p-4 text-center flex justify-between items-center'>
-        <button onClick={() => { return setToggle(true)}} className={` cursor-pointer px-4 py-4 m-2
+        <button onClick={() => {
+          toast("Select more player!!")
+          setToggle(true)
+          return
+        }} className={` cursor-pointer px-4 py-4 m-2
         outline-neutral-700 rounded-xl font-semibold bg-[#E7FE29] ${toggle && "hidden"}`
-            }>Select More Players</button>
+        }>Select More Players</button>
 
       </div>
       <ToastContainer />

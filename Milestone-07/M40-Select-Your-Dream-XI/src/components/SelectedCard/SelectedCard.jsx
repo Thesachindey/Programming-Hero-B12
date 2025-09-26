@@ -1,10 +1,13 @@
 import React from 'react';
+import { toast } from 'react-toastify';
+// import { toast } from 'react-toastify';
 
 const SelectedCard = ({player,removePlayer }) => {
     
 
 const handelRemove=()=>{
     removePlayer(player);
+   toast(`${player.name} was removed from the team!!`)
 }
 
     return (
@@ -17,7 +20,7 @@ const handelRemove=()=>{
                         <p className='text-gray-600 text-xs'>{player.battingStyle}</p>
                     </div>
                 </div>
-                <div onClick={handelRemove}>
+                <div onClick={handelRemove} className='cursor-pointer'>
                     <img src="https://i.ibb.co.com/whJTfLgp/Frame.png" alt="" />
                 </div>
             </div>
