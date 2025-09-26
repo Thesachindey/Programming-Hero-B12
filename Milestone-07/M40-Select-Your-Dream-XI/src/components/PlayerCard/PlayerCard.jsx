@@ -25,7 +25,9 @@ const PlayerCard = ({ player, setAvailableBalance, availableBalance, purchasedPl
         toast(`${player.name} has been purchased!`);
 
     }
+    
 
+   
 
 
     return (

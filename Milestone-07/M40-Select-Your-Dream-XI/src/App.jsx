@@ -9,7 +9,7 @@ import { Suspense, useState } from 'react';
 const fetchPlayers = fetch('/players.json').then(res => res.json());
 
 function App() {
-  const [toggle, setToggle] = useState(true);
+  const [toggle, setToggle] = useState(true);// toggle state for available and selected players
   const [availableBalance, setAvailableBalance] = useState(14000000);// initial available balance
   const [purchasedPlayers, setPurchasedPlayers] = useState([]); // purchased players list state
 
@@ -50,7 +50,12 @@ function App() {
           :
           <SelectedPlayers purchasedPlayers={purchasedPlayers} removePlayer={removePlayer}></SelectedPlayers>
       }
+      <div className=' max-w-[1200px] mx-auto mt-10 p-4 text-center flex justify-between items-center'>
+        <button onClick={() => { return setToggle(true)}} className={` cursor-pointer px-4 py-4 m-2
+        outline-neutral-700 rounded-xl font-semibold bg-[#E7FE29] ${toggle && "hidden"}`
+            }>Select More Players</button>
 
+      </div>
       <ToastContainer />
 
     </>
