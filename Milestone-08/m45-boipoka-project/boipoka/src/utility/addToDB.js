@@ -18,7 +18,7 @@ const addToStoredDB = (id) => {
 
     if (storedBookData.includes(id)) {
         console.log("hello")
-        alert("bhai ei id already exist ")
+        // alert("bhai ei id already exist ")
     }
     else {
         storedBookData.push(id);
