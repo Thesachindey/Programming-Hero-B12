@@ -2,7 +2,7 @@ import React from 'react';
 import { Link } from 'react-router';
 
 const ProductCard = ({ product }) => {
-    const { id, name, category, price, material, dimensions, stock, image, description } = product;
+    const { id, name, category, price, image, description } = product;
 
     return (
         <div>

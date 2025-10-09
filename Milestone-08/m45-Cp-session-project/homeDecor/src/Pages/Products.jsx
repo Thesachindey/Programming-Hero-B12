@@ -3,9 +3,10 @@ import useProducts from '../hooks/useProducts';
 import { Link } from 'react-router';
 import ProductCard from '../components/ProductCard';
 import { FiSearch } from 'react-icons/fi';
+import SkeletonLoader from '../components/SkeletonLoader';
 
 const Products = () => {
-    const { products } = useProducts();//data from custom hook
+    const { products, loading } = useProducts();//data from custom hook
     const [search, setSearch] = useState('');
     const term = search.trim().toLocaleLowerCase();//this is correction data what people search
 
@@ -13,10 +14,10 @@ const Products = () => {
     // term(data what people search). and add it into new variable. then we can map it
     const searchedProducts = term
         ? products.filter(product =>
-             product.name.toLocaleLowerCase().includes(term))
+            product.name.toLocaleLowerCase().includes(term))
         : products
 
-console.log(searchedProducts)
+    console.log(searchedProducts)
 
 
 
@@ -25,7 +26,7 @@ console.log(searchedProducts)
             <h1 className='font-bold text-4xl text-center mb-10'>Products</h1>
 
             <div className='flex justify-between items-center py-6'>
-                <h1 className='text-3xl font-semibold'>All Products <span className='text-sm text-gray-500'>({ searchedProducts.length}) Products found.</span></h1>
+                <h1 className='text-3xl font-semibold'>All Products <span className='text-sm text-gray-500'>({searchedProducts.length}) Products found.</span></h1>
 
                 <label className="input">
                     <FiSearch />
@@ -36,13 +37,19 @@ console.log(searchedProducts)
                 </label>
 
             </div>
-            <div className='grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6'>
-                {
-                    searchedProducts.map(product =>
-                        <ProductCard key={product.id} product={product}></ProductCard>
-                    )
-                }
-            </div>
+            {
+                loading
+                    ?
+                    <SkeletonLoader count={16} />
+                    :
+                    <div className='grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6'>
+                        {
+                            searchedProducts.map(product =>
+                                <ProductCard key={product.id} product={product}></ProductCard>
+                            )
+                        }
+                    </div>
+            }
         </div>
     );
 };
