@@ -8,7 +8,7 @@ const Home = () => {
     console.log(data);
 
     return (
-        <div>
+        <div className=''>
             <Banner></Banner>
             <Books data={data}></Books>
         </div>
