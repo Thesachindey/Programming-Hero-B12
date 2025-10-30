@@ -4,7 +4,7 @@ import { FaArrowLeft } from 'react-icons/fa';
 import { Link } from 'react-router';
 
 const NewsDetailsCard = ({news}) => {
-    console.log(news);
+    // console.log(news);
     return (
         <div>
            <div className="border rounded-md border-base-300 shadow p-6">

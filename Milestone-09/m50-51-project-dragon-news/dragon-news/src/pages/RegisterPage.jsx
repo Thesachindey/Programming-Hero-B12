@@ -1,10 +1,10 @@
 import React, { use } from 'react';
-import { Form, Link } from 'react-router';
+import { Form, Link, useNavigate } from 'react-router';
 import { AuthContext } from '../provider/AuthProvider';
 
 const RegisterPage = () => {
-    const { createUser, setUser} = use(AuthContext);
-
+    const { createUser, setUser, updateUser } = use(AuthContext);
+    const navigate = useNavigate();
     const handelRegister = (e) => {
         e.preventDefault();
         const form = e.target;
@@ -18,7 +18,14 @@ const RegisterPage = () => {
             .then(result => {
                 const loggedUser = result.user;
                 // console.log(loggedUser)
-                setUser(loggedUser);
+                updateUser({ displayName: name, photoURL: photo })
+                    .then(() => {
+                        setUser({ ...loggedUser, displayName: name, photoURL: photo });
+                        navigate('/');
+                    }).catch((error) => {
+                        console.log(error);
+                        setUser(loggedUser);
+                    })
             })
             .catch((error) => {
                 const errorCode = error.code;
