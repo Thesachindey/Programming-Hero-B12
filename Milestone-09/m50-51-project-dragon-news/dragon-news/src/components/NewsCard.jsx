@@ -59,7 +59,7 @@ const NewsCard = ({ news }) => {
                     Wednesday, August 24, 2022 | Tag Cloud Tags:{" "}
                     {tags.join(", ")} — {details.slice(0, 180)}...
                     <Link
-                        to={`/news/${id}`}
+                        to={`/news-details/${id}`}
                         className="text-orange-500 font-semibold ml-1 hover:underline"
                     >
                         Read More

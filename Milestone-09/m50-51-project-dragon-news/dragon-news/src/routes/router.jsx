@@ -2,6 +2,10 @@ import { createBrowserRouter } from "react-router";
 import HomeLayouts from "../layouts/HomeLayouts";
 import Home from "../pages/Home";
 import CategoryNews from "../pages/CategoryNews";
+import LoginPage from "../pages/LoginPage";
+import RegisterPage from "../pages/RegisterPage";
+import AuthLayouts from "../layouts/AuthLayouts";
+import NewsDetails from "../pages/NewsDetails";
 
 const router = createBrowserRouter([
     {
@@ -14,20 +18,32 @@ const router = createBrowserRouter([
             },
             {
                 path: "/category/:id",
-                element: <CategoryNews/>,
-                loader: ()=>fetch('/news.json'),
+                element: <CategoryNews />,
+                loader: () => fetch('/news.json'),
                 hydrateFallbackElement: <p>loading...</p>
             },
         ]
     },
     {
         path: "/auth",
-        element: <h1>Authentication layout</h1>
+        element: <AuthLayouts />,
+        children: [
+            {
+                path: '/auth/login',
+                element: <LoginPage />
+            },
+            {
+                path: '/auth/register',
+                element: <RegisterPage />
+            }
+        ]
 
     },
     {
-        path: "/news",
-        element: <h1>News layout</h1>
+        path: "/news-details/:id",
+        element: <NewsDetails />,
+        loader: () => fetch('/news.json'),
+        hydrateFallbackElement: <p>loading...</p>,
 
     },
     {

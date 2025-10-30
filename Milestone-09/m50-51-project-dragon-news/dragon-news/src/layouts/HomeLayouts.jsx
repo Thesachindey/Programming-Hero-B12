@@ -20,7 +20,7 @@ const HomeLayouts = () => {
             </header>
             {/* main section  */}
             <main className='w-11/12 mx-auto my-3  grid grid-cols-12 gap-10'>
-                <aside className='col-span-3'>
+                <aside className='col-span-3 h-fit sticky top-3 '>
                     <LeftAside />
                 </aside>
 
@@ -29,7 +29,7 @@ const HomeLayouts = () => {
                     <Outlet></Outlet>
                 </section>
 
-                <aside className='col-span-3'>
+                <aside className='col-span-3 h-fit sticky top-3'>
                     <RightAside />
                 </aside>
 
