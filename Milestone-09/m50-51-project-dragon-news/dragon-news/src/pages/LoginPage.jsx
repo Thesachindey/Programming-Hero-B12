@@ -8,18 +8,18 @@ const LoginPage = () => {
     const { signIn } = use(AuthContext);
     const location = useLocation();
     const navigate = useNavigate();
-    console.log(location);
+    // console.log(location);
     const handelLogIn = (event) => {
         event.preventDefault();
         const from = event.target;
         const email = from.email.value;
         const password = from.password.value;
-        console.log({ email, password });
+        // console.log({ email, password });
 
         signIn(email, password)
             .then((result) => {
                 const user = result.user;
-                console.log(user)
+                // console.log(user)
                 navigate(`${location.state ? location.state : '/'}`);
 
 

@@ -9,7 +9,7 @@ const PrivateRoute = ({ children }) => {
     //if user is logged in, then allow to visit the route
 
     const location= useLocation();
-    console.log(location);
+    // console.log(location);
 
     if (loading) {
         return <LoadingPage />
