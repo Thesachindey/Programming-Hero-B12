@@ -1,32 +1,93 @@
 
 import { Link } from "react-router";
 import MyContainer from "../components/MyContainer";
+import { FaEye } from "react-icons/fa";
+import { IoEyeOff } from "react-icons/io5";
+import { useState } from "react";
+import { GoogleAuthProvider, signInWithEmailAndPassword, signInWithPopup, signOut } from "firebase/auth";
+import { auth } from "../firebase/firebase.config";
+import { toast } from "react-toastify";
 
 
+
+const googleProvider = new GoogleAuthProvider();
 
 const Signin = () => {
-
-
+  const [user, setUser] = useState(null);
+  const [show, setShow] = useState(false);
 
 
 
   // const [email, setEmail] = useState(null);
 
-  const handleSignin = () => {
-  
+  const handleSignin = (e) => {
+    e.preventDefault();
+    const email = e.target.email?.value;
+    const password = e.target.password?.value;
+    console.log('signIn function will entered!!!', { password, email })//password.value,email.value
+
+    signInWithEmailAndPassword(auth, email, password)
+      .then((userCredential) => {
+        // Signed in 
+        const user = userCredential.user;
+        console.log(user);
+        console.log(userCredential);
+        setUser(user);
+        toast.success("SignIn completed!!")
+
+      })
+      .catch((error) => {
+        const errorCode = error.code;
+        // const errorMessage = error.message;
+        toast.error(errorCode);
+        console.log(errorCode);
+      });
+
   };
 
+  
+
   const handleGoogleSignin = () => {
-    
+
+    signInWithPopup(auth, googleProvider)
+     .then((userCredential) => {
+        // Signed in 
+        const user = userCredential.user;
+        console.log(user);
+        console.log(userCredential);
+        setUser(user);
+        toast.success("SignIn completed!!")
+        console.log(user.photoURL);
+
+      })
+      .catch((error) => {
+        const errorCode = error.code;
+        // const errorMessage = error.message;
+        toast.error(errorCode);
+        console.log(errorCode);
+      });
   };
 
   const handleGithubSignin = () => {
-   
+
   };
 
   const handleForgetPassword = () => {
-  
+
   };
+  const handleSignOut = () => {
+    signOut(auth)
+      .then(() => {
+        // Sign-out successful.
+        toast.success(' Sign-out successful');
+        setUser(null);
+
+      }).catch((error) => {
+        // An error happened.
+        toast.error(error.code)
+      });
+
+  }
 
   // console.log();
 
@@ -53,7 +114,16 @@ const Signin = () => {
 
           {/* Login card */}
           <div className="w-full max-w-md backdrop-blur-lg bg-white/10 border border-white/20 shadow-2xl rounded-2xl p-8">
-            <form onSubmit={handleSignin} className="space-y-5">
+            {user ? (
+              <div className="text-center space-y-6">
+                <img src={(user?.photoURL) || 'https://images.unsplash.com/profile-1739313197804-6f9cf0af7ed3image?ixlib=rb-4.1.0&auto=format&fit=crop&q=60&w=32&dpr=2&crop=faces&bg=%23fff&h=32'}
+                  className="h-20 w-20 bg-cover rounded-full mx-auto" alt="" />
+                <h2 className="text-xl font-semibold">{user?.displayName}</h2>
+                <p className="text-white/80">{user?.email}</p>
+                <button onClick={handleSignOut} className="my-btn">Sign Out</button>
+
+              </div>
+            ) : (<form onSubmit={handleSignin} className="space-y-5">
               <h2 className="text-2xl font-semibold mb-2 text-center text-white">
                 Sign In
               </h2>
@@ -63,7 +133,7 @@ const Signin = () => {
                 <input
                   type="email"
                   name="email"
-               
+
                   // value={email}
                   // onChange={(e) => setEmail(e.target.value)}
                   placeholder="example@email.com"
@@ -74,16 +144,16 @@ const Signin = () => {
               <div className="relative">
                 <label className="block text-sm mb-1">Password</label>
                 <input
-                 
+                  type={show ? 'text' : 'password'}
                   name="password"
                   placeholder="••••••••"
                   className="input input-bordered w-full bg-white/20 text-white placeholder-white/60 focus:outline-none focus:ring-2 focus:ring-blue-400"
                 />
                 <span
-                 
+                  onClick={() => setShow(!show)}
                   className="absolute right-[8px] top-[36px] cursor-pointer z-50"
                 >
-                 
+                  {show ? <FaEye /> : <IoEyeOff />}
                 </span>
               </div>
 
@@ -143,7 +213,7 @@ const Signin = () => {
                   Sign up
                 </Link>
               </p>
-            </form>
+            </form>)}
           </div>
         </div>
       </MyContainer>

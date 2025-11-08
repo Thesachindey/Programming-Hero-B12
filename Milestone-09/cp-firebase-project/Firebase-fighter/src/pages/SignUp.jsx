@@ -2,13 +2,17 @@ import { Link, useNavigate } from "react-router";
 
 import MyContainer from "../components/MyContainer";
 
+
 import { toast } from "react-toastify";
 import { createUserWithEmailAndPassword } from "firebase/auth";
 import { auth } from "../firebase/firebase.config";
+import { useState } from "react";
+import { FaEye } from "react-icons/fa";
+import { IoEyeOff } from "react-icons/io5";
 
 
 const SignUp = () => {
-
+  const [show, setShow] = useState(false);
 
   const handleSignup = (e) => {
     e.preventDefault();
@@ -16,20 +20,60 @@ const SignUp = () => {
     const password = e.target.password?.value;
     console.log('signUp function will entered!!!', { password, email })//password.value,email.value
 
+    //server request kom korar jonno;
+    // if(password.length<6){
+    //   toast.error('Password should be at list 6 digit!');
+    //   return;
+    // }
+
+    const regExp = /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{8,}$/;
+    if (!regExp.test(password)) {
+      toast.error("Password must be at least 8 characters long and include at least one uppercase letter, one lowercase letter, one number, and one special character (@, $, !, %, *, ?, &)."
+      )
+      return;
+    }
+
+
     createUserWithEmailAndPassword(auth, email, password).then((userCredential) => {
       // Signed up 
-        const user = userCredential.user;
-        if(password.length<6){
-          toast.error('Password should be at list 6 digit!');
-        }
-        console.log(user);
+      const user = userCredential.user;
+      console.log(user);
       toast.success("signUp successful!");
     })
       .catch((error) => {
         const errorCode = error.code;
         // const errorMessage = error.message;
-        toast.error(errorCode);
-       
+        //custom error massage
+        if (errorCode === "auth/email-already-in-use") {
+          toast.error("Vai! Ei email ta agei register kora ase 😅");
+        }
+        else if (errorCode === "auth/invalid-email") {
+          toast.error("Bro, valid email de! Eta email na 😑");
+        }
+        else if (errorCode === "auth/weak-password") {
+          toast.error("Password komse! Minimum 6 digit lagbe 💪");
+        }
+        else if (errorCode === "auth/operation-not-allowed") {
+          toast.error("Email/password sign-in Firebase e enable koro first 😐");
+        }
+        else if (errorCode === "auth/missing-email") {
+          toast.error("Email dite vule geso bro 😅");
+        }
+        else if (errorCode === "auth/missing-password") {
+          toast.error("Password dite vule geso 😅");
+        }
+        else if (errorCode === "auth/network-request-failed") {
+          toast.error("Network error! Internet check koro 🔌");
+        }
+        else if (errorCode === "auth/too-many-requests") {
+          toast.error("Onk bar try korso! Ektu por abar try koro ⏳");
+        }
+        else if (errorCode === "auth/internal-error") {
+          toast.error("Internal error! Ektu por abar try koro 😵");
+        }
+        else {
+          toast.error(`Unknown Error: ${errorCode}`);
+        }
       });
   }
 
@@ -94,16 +138,16 @@ const SignUp = () => {
                   Password
                 </label>
                 <input
-                  type={"text"}
+                  type={show ? 'text' : 'password'}
                   name="password"
                   placeholder="••••••••"
                   className="input input-bordered w-full bg-white/20 text-white placeholder-white/60 focus:outline-none focus:ring-2 focus:ring-pink-400"
                 />
                 <span
-
+                  onClick={() => setShow(!show)}
                   className="absolute right-[8px] top-[36px] cursor-pointer z-50"
                 >
-
+                  {show ? <FaEye /> : <IoEyeOff />}
                 </span>
               </div>
 
