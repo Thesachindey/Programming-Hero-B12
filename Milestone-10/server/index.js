@@ -1,11 +1,39 @@
 const express = require('express')
 const cors = require('cors')
+const admin = require("firebase-admin");
+const serviceAccount = require("./serviceKey.json");
 const { MongoClient, ServerApiVersion, ObjectId } = require('mongodb');
 const app = express()
 const port = 3000
 
 app.use(cors())
 app.use(express.json())
+
+
+//for authentication
+admin.initializeApp({
+    credential: admin.credential.cert(serviceAccount)
+});
+
+
+
+const middleware = async (req, res, next) => {
+    const authorization = req.headers.authorization
+    const token = authorization.split(' ')[1]
+
+    try {
+        await admin.auth().verifyIdToken(token)
+        next()
+    } catch (error) {
+        res.status(401).send({
+            message: "Unauthorized access."
+        })
+    }
+
+
+}
+
+
 
 //Mongo DB
 const uri = "mongodb+srv://model-db:nDxqBLrfEZsf4Cdm@cluster0.6fqewb1.mongodb.net/?appName=Cluster0";
@@ -42,7 +70,12 @@ async function run() {
 
         // models details dekbo,tai akta data get korbo by [findOne()] method
 
-        app.get('/models/:id', async (req, res) => {
+        //    { (req, res, next) => {
+        //     console.log(`I'm from middleware!`);
+        //     next()
+        // }} this middleware clint side ar server ar middle e bose
+
+        app.get('/models/:id', middleware, async (req, res) => {
             //clint side hote ja asbe ta req te thakbe
             const { id } = req.params
             console.log(id)
@@ -79,12 +112,12 @@ async function run() {
 
         app.put('/models/:id', async (req, res) => {
             const { id } = req.params
-            const data= req.body
+            const data = req.body
             // console.log(id)
             // console.log(data)
             const objectId = new ObjectId(id)
-            const filter={_id: objectId}
-            const update={
+            const filter = { _id: objectId }
+            const update = {
                 $set: data
             }
 
@@ -97,24 +130,36 @@ async function run() {
         })
 
 
-// Delete 
-// deleteOne
-// deleteMany
+        // Delete 
+        // deleteOne
+        // deleteMany
 
-app.delete('/models/:id', async (req, res) => {
-    const {id}=req.params
-    const objectId =new ObjectId(id)
-    const filter ={_id: objectId}
-    const result = await modelCollection.deleteOne(filter)
+        app.delete('/models/:id', async (req, res) => {
+            const { id } = req.params
+            const objectId = new ObjectId(id)
+            const filter = { _id: objectId }
+            const result = await modelCollection.deleteOne(filter)
 
-    res.send({
-        success:true,
-        result
-    })
-    
-})
+            res.send({
+                success: true,
+                result
+            })
+
+        })
 
 
+
+        // sort latest 6 data 
+        // get method
+        // find 
+
+        app.get('/latest-models', async (req, res) => {
+            const result = await modelCollection.find().sort({ created_at: 'desc' }).limit(6).toArray()
+
+            console.log(result)
+
+            res.send(result)
+        })
 
 
 
