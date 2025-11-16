@@ -1,6 +1,7 @@
 const express = require('express')
 const cors = require('cors')
 const admin = require("firebase-admin");
+require("dotenv").config()
 const serviceAccount = require("./serviceKey.json");
 const { MongoClient, ServerApiVersion, ObjectId } = require('mongodb');
 const app = express()
@@ -15,12 +16,30 @@ admin.initializeApp({
     credential: admin.credential.cert(serviceAccount)
 });
 
+// model-db:nDxqBLrfEZsf4Cdm
+// console.log(process.env.DB_PASSWORD)
+//Mongo DB
+const uri
+    = `mongodb+srv://${process.env.DB_USERNAME}:${process.env.DB_PASSWORD}@cluster0.6fqewb1.mongodb.net/?appName=Cluster0`;
 
+// Create a MongoClient with a MongoClientOptions object to set the Stable API version
+const client = new MongoClient(uri, {
+    serverApi: {
+        version: ServerApiVersion.v1,
+        strict: true,
+        deprecationErrors: true,
+    }
+});
 
+//middleware
 const middleware = async (req, res, next) => {
     const authorization = req.headers.authorization
+    if (!authorization) {
+        return res.status(401).send({
+            massage: 'unauthorized access. Token not found!'
+        })
+    }
     const token = authorization.split(' ')[1]
-
     try {
         await admin.auth().verifyIdToken(token)
         next()
@@ -33,20 +52,7 @@ const middleware = async (req, res, next) => {
 
 }
 
-
-
-//Mongo DB
-const uri = "mongodb+srv://model-db:nDxqBLrfEZsf4Cdm@cluster0.6fqewb1.mongodb.net/?appName=Cluster0";
-
-// Create a MongoClient with a MongoClientOptions object to set the Stable API version
-const client = new MongoClient(uri, {
-    serverApi: {
-        version: ServerApiVersion.v1,
-        strict: true,
-        deprecationErrors: true,
-    }
-});
-
+// all METHODS
 async function run() {
     try {
         // Connect the client to the server	(optional starting in v4.7)
@@ -55,6 +61,7 @@ async function run() {
 
         const db = client.db('model-db')
         const modelCollection = db.collection('models')
+        const downloadCollection = db.collection('downloads')
 
         // Get Method
         // find 
@@ -163,6 +170,48 @@ async function run() {
 
 
 
+        // my model page api endpoint making 
+        app.get('/my-models', middleware, async (req, res) => {
+            const email = req.query.email
+            const result = await modelCollection.find({ created_by: email }).toArray()
+
+            res.send(result)
+        })
+
+
+        // downloads collection rakhbo tai api toiri korlam
+        app.post('/downloads/:id', async (req, res) => {
+            const data = req.body
+            const id = req.params.id
+            //downloads collection...
+            const result = await downloadCollection.insertOne(data)
+
+            //download counted...
+            const filter = { _id: new ObjectId(id) }
+            const update = {
+                $inc: {
+                    downloads: 1
+                }
+            }
+            const downloadCounted = await modelCollection.updateOne(filter, update)
+            res.send({ result, downloadCounted })
+        })
+
+        app.get('/my-downloads', middleware, async (req, res) => {
+            const email = req.query.email
+            const result = await downloadCollection.find({ downloaded_by: email }).toArray()
+            res.send(result)
+        })
+
+        app.get("/search", async (req, res) => {
+            const search_text = req.query.search
+            const result = await modelCollection.find({ name: { $regex: search_text, $options: "i" } }).toArray()
+            res.send(result)
+        })
+
+
+
+
         // Send a ping to confirm a successful connection
         await client.db("admin").command({ ping: 1 });
         console.log("Pinged your deployment. You successfully connected to MongoDB!");
@@ -178,7 +227,7 @@ run().catch(console.dir);
 
 
 app.get('/', (req, res) => {
-    res.send('Hello Shaurov!')
+    res.send('Hello World!')
 })
 
 app.listen(port, () => {
