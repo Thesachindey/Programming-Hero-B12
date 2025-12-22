@@ -22,3 +22,12 @@ dist-ssr
 *.njsproj
 *.sln
 *.sw?
+
+
+.env  
+# ||| 
+# to work this, we need to run this command ---
+# git rm --cached .env
+# git commit -m "Remove .env file from tracking"
+# git push origin main
+

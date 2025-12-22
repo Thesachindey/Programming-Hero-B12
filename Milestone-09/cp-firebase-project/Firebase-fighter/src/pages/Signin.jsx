@@ -3,20 +3,29 @@ import { Link } from "react-router";
 import MyContainer from "../components/MyContainer";
 import { FaEye } from "react-icons/fa";
 import { IoEyeOff } from "react-icons/io5";
-import { useState } from "react";
-import { GoogleAuthProvider, signInWithEmailAndPassword, signInWithPopup, signOut } from "firebase/auth";
-import { auth } from "../firebase/firebase.config";
+import { use, useRef, useState } from "react";
 import { toast } from "react-toastify";
+import { AuthContext } from "../context/AuthContext";
 
 
 
-const googleProvider = new GoogleAuthProvider();
+
+
 
 const Signin = () => {
-  const [user, setUser] = useState(null);
+  // const [user, setUser] = useState(null);
   const [show, setShow] = useState(false);
 
+  const {
+    signInWithEmailAndPasswordFunc,
+    signInWithGoogleFunc,
+    signInWithGithubFunc,
+    sendPasswordResetEmailFunc,
+    signOutFunc,
+    user,
+    setUser } = use(AuthContext);
 
+  const emailRef = useRef(null);
 
   // const [email, setEmail] = useState(null);
 
@@ -26,14 +35,20 @@ const Signin = () => {
     const password = e.target.password?.value;
     console.log('signIn function will entered!!!', { password, email })//password.value,email.value
 
-    signInWithEmailAndPassword(auth, email, password)
+    // signInWithEmailAndPassword(auth, email, password)
+    signInWithEmailAndPasswordFunc(email, password)
       .then((userCredential) => {
         // Signed in 
         const user = userCredential.user;
         console.log(user);
         console.log(userCredential);
+        if (!user.emailVerified) {
+          toast.error('Your email is not verified!!');
+          return;
+        }
         setUser(user);
-        toast.success("SignIn completed!!")
+        toast.success("SignIn completed!!");
+
 
       })
       .catch((error) => {
@@ -45,12 +60,12 @@ const Signin = () => {
 
   };
 
-  
-
   const handleGoogleSignin = () => {
 
-    signInWithPopup(auth, googleProvider)
-     .then((userCredential) => {
+
+    // signInWithPopup(auth, googleProvider)
+    signInWithGoogleFunc()
+      .then((userCredential) => {
         // Signed in 
         const user = userCredential.user;
         console.log(user);
@@ -69,14 +84,48 @@ const Signin = () => {
   };
 
   const handleGithubSignin = () => {
+    // signInWithPopup(auth, githubProvider)
+    signInWithGithubFunc()
+      .then((userCredential) => {
+        // Signed in 
+        const user = userCredential.user;
+        console.log(user);
+        console.log(userCredential);
+        setUser(user);
+        toast.success("SignIn completed!!")
+        console.log(user.photoURL);
+
+      })
+      .catch((error) => {
+        const errorCode = error.code;
+        // const errorMessage = error.message;
+        toast.error(errorCode);
+        console.log(errorCode);
+      });
 
   };
 
   const handleForgetPassword = () => {
 
+    console.log();
+    const email = emailRef.current.value;
+    // sendPasswordResetEmail(auth, email)
+    sendPasswordResetEmailFunc(email)
+      .then(() => {
+        // Password reset email sent!
+        toast.success('Password reset email sent!');
+        // ..
+      })
+      .catch((error) => {
+        const errorCode = error.code;
+        // const errorMessage = error.message;
+        toast.error(errorCode);
+        // ..
+      });
   };
   const handleSignOut = () => {
-    signOut(auth)
+    // signOut(auth)
+    signOutFunc()
       .then(() => {
         // Sign-out successful.
         toast.success(' Sign-out successful');
@@ -89,7 +138,7 @@ const Signin = () => {
 
   }
 
-  // console.log();
+  // console.log(email);
 
   return (
     <div className="min-h-[calc(100vh-20px)] flex items-center justify-center bg-gradient-to-br from-blue-500 via-indigo-600 to-purple-600 relative overflow-hidden">
@@ -133,9 +182,10 @@ const Signin = () => {
                 <input
                   type="email"
                   name="email"
-
+                  ref={emailRef}
                   // value={email}
                   // onChange={(e) => setEmail(e.target.value)}
+
                   placeholder="example@email.com"
                   className="input input-bordered w-full bg-white/20 text-white placeholder-white/60 focus:outline-none focus:ring-2 focus:ring-blue-400"
                 />

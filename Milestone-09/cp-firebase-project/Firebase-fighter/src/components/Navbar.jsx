@@ -2,9 +2,14 @@ import { Link, NavLink } from "react-router";
 import logo from "../assets/firebase-logo.png";
 import MyContainer from "./MyContainer";
 import MyLink from "./MyLink";
+import { use } from "react";
+import { AuthContext } from "../context/AuthContext";
 
 const Navbar = () => {
   const handleSignout = () => {};
+
+// const result= use(AuthContext)
+// console.log(result);
 
   return (
     <div className="bg-blue-950 py-2 border-b border-b-slate-300">
@@ -30,9 +35,9 @@ const Navbar = () => {
         {/* Right - Buttons / Dropdown */}
         <div className="flex items-center gap-5">
           {/* Profile Popover */}
-          <div className="relative">
+          <div className="">
             <button
-              className="btn btn-sm border border-slate-300 text-slate-600 "
+              className="btn  btn-sm border border-slate-300 text-slate-600 "
               popoverTarget="popover-1"
               style={{ anchorName: "--anchor-1" }}
             >
@@ -62,7 +67,7 @@ const Navbar = () => {
 
           {/* Sign-in Button */}
           <Link
-            to={"/signup"}
+            to={"/signin"}
             className="bg-purple-500 hover:bg-purple-600 text-white px-4 py-2 rounded-md font-semibold"
           >
             Sign in

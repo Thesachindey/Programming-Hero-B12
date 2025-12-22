@@ -4,21 +4,27 @@ import MyContainer from "../components/MyContainer";
 
 
 import { toast } from "react-toastify";
-import { createUserWithEmailAndPassword } from "firebase/auth";
+import { createUserWithEmailAndPassword, sendEmailVerification, updateProfile } from "firebase/auth";
 import { auth } from "../firebase/firebase.config";
-import { useState } from "react";
+import { use, useState } from "react";
 import { FaEye } from "react-icons/fa";
 import { IoEyeOff } from "react-icons/io5";
+import { AuthContext } from "../context/AuthContext";
 
 
 const SignUp = () => {
   const [show, setShow] = useState(false);
 
+  const { createUserWithEmailAndPasswordFunc } = use(AuthContext);
+
   const handleSignup = (e) => {
     e.preventDefault();
+    const photoURL = e.target.photo?.value;
+    const displayName = e.target.name?.value;
     const email = e.target.email?.value;
     const password = e.target.password?.value;
-    console.log('signUp function will entered!!!', { password, email })//password.value,email.value
+
+    console.log('signUp function will entered!!!', { photoURL, displayName, password, email })//password.value,email.value
 
     //server request kom korar jonno;
     // if(password.length<6){
@@ -34,11 +40,34 @@ const SignUp = () => {
     }
 
 
-    createUserWithEmailAndPassword(auth, email, password).then((userCredential) => {
-      // Signed up 
+    // step-1:Signed up 
+    // createUserWithEmailAndPassword(auth, email, password)
+    createUserWithEmailAndPasswordFunc( email, password)
+    .then((userCredential) => {
       const user = userCredential.user;
       console.log(user);
-      toast.success("signUp successful!");
+      //step-2: Profile updated!
+      updateProfile(user, { displayName, photoURL })
+        .then((res) => {
+          //step-3: Email verification sent!
+          sendEmailVerification(user)
+            .then(() => {
+              console.log(user);
+              toast.success("signUp successful!");
+              // ...
+            }).catch((error) => {
+              // An error occurred
+              toast.error(error.code)
+              // ...
+            });
+
+          // ...
+        }).catch((error) => {
+          // An error occurred
+          toast.error(error.code)
+          // ...
+        });
+
     })
       .catch((error) => {
         const errorCode = error.code;
