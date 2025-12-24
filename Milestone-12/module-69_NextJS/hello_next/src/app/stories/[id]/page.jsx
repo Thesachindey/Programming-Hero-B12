@@ -1,8 +1,10 @@
-import StoryCard from '@/Components/StoryCard';
-import Title from '@/Components/Title';
+import StoryDetails from '@/Components/StoryDetails';
 import React from 'react';
 
-const Stories = () => {
+const StoryDetailsPage = async ({ params }) => {
+    const { id } = await params;
+
+
     const devStories = [
         {
             "id": 1,
@@ -61,16 +63,18 @@ const Stories = () => {
         }
     ];
 
+    const story = devStories.find(s => s.id === parseInt(id));
+    if(!story){
+        return <div>Story not found</div>;
+    }
+
     return (
-        <div className=''>
-            <Title>Welcome to Stories of 🐳DevStory</Title>
-            <div className="mt-6">
-                {
-                    devStories.map((story)=> <StoryCard story={story} key={story.id}/>)
-                }
-            </div>
+        <div>
+            {
+                <StoryDetails story={story} />
+            }
         </div>
     );
 };
 
-export default Stories;
+export default StoryDetailsPage;

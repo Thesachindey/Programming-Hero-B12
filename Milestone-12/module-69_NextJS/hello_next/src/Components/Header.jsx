@@ -10,7 +10,7 @@ const Header = () => {
     </>;
     return (
         <div>
-            <div className="border border-gray-200 text-white p-4 flex justify-between items-center flex-wrap">
+            <div className="border border-gray-200  p-4 flex justify-between items-center flex-wrap">
                 <Link href={'/'} className="text-2xl font-bold">🐳DevStory</Link>
                 <nav className='space-x-4'>
                     {links}
