@@ -7,6 +7,7 @@ const Header = () => {
         <Link href="/stories">Stories</Link>
         <Link href="/tutorials">Tutorials</Link>
         <Link href="/register">Register</Link>
+        <Link href="/login">Login</Link>
     </>;
     return (
         <div>
